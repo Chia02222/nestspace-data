@@ -31,7 +31,7 @@ export const WHAT_WE_OFFER = [
 ];
 
 export const WHY_247_ACCESS = [
-    { title: 'No More Family Interruptions', description: 'Conduct calls without waking the kids or disturbing your partner.' },
+    { title: 'No More Family Interruptions', description: 'Conduct calls withoutwaking the kids or disturbing your partner.' },
     { title: 'Work Freely After Midnight', description: 'Our space is accessible past 12AM — built for your global schedule.' },
     { title: 'Skip the Traffic', description: 'Avoid the rush hour, a 1-hour commute becomes just 15 minutes from home.' },
     { title: 'Not Centralize Air-Cond', description: 'Access the aircond anytime you need, just off it when you are not using it.' },
@@ -45,11 +45,16 @@ export const LOCATION_INFO = {
         { name: 'Uptown 7 Car Park', details: '(More than 1,400 car park bays) Accessible from Jalan SS21/39.' },
         { name: 'MBPJ Car Park', details: 'Park Surround the Nestspace. Weekday: 2 Hour parking. Weekend & Public Holiday: Free parking.' }
     ],
-    byShuttle: {
-        details: 'Weekdays: 7.30am - 10.30pm, Weekends & public holiday: 9am - 11pm. From the Starling (South Entrance) to Kelana Jaya LRT and TTDI MRT and back.'
-    },
     byPublicTransport: {
         lrt: '802 shuttle bus goes from Kelana Jaya LRT station to Damansara Uptown (Barat) (Pj134) and back to Kelana Jaya LRT Station.',
+        bus: [
+            { name: '802 Bus', detail: 'Stop at Damansara Uptown (Barat) (Pj134) (in front DAP office)'},
+            { name: 'T813 Bus', detail: 'Stop at SS21/1A (PJ142) (in front DAP office)'},
+        ],
+        busNote: {
+            text: 'For more info, please visit',
+            url: 'https://moovitapp.com/kuala_lumpur-1082/poi/en'
+        },
         mrt: 'T813 shuttle bus goes from Taman Tun Dr Ismail MRT station and back to TTDI MRT Station.'
     }
 };
@@ -119,6 +124,17 @@ export const PRICING = {
             ['12 Months', 'RM1000', 'RM550'],
         ]
     },
+    virtualOfficeFacilities: {
+        title: 'Virtual Office Facilities',
+        headers: ['Feature', '6 Months', '12 Months'],
+        data: [
+            ['Business Address', 'Included', 'Included'],
+            ['Mail Handling', 'Included', 'Included'],
+            ['Day Pass', 'Not included', '12 Day Pass'],
+            ['Meeting Room', 'Not Included', '5 Hours'],
+            ['Event Space', 'Not Included', '15% Off'],
+        ]
+    },
     meetingRoom: {
         title: 'Meeting Room and Coaching Room',
         rates: [
@@ -142,7 +158,16 @@ export const PRICING = {
             ['6 Months', 'RM700/month'],
             ['12 Months', 'RM500/month'],
         ],
-        note: '**Monthly package for event space is for 10 hours/month'
+        note: '**Monthly package for event space is for 10 hours/month',
+        facilities: [
+            'Tables & Chairs with Setup (Classroom & Theatre)',
+            'High Speed Internet (Wifi)',
+            'Electricity',
+            'Water',
+            'TV (x2)',
+            'Whiteboard',
+            'PA System with 2 wireless mic'
+        ]
     }
 };
 
@@ -152,17 +177,32 @@ export const TAILORED_SOLUTIONS = [
     { title: 'Solution 03: Upgrade Your Company Workspace', description: 'We\'ll transform your current office or building into a space that perfectly meets your needs.', lookingFor: 'A change in your company\'s office culture. A fresh, modern look for your office. Retaining and attracting top talent.'}
 ];
 
-export const JOB_HIRING = [
-    { title: 'Solution 01: Full-Service Recruitment', description: 'After understanding your requirements, we\'ll post the job, source and filter candidates, and provide you with the best options to interview.', lookingFor: 'End-to-end recruitment support. Time-saving and hassle-free hiring process. Candidate replacements with a 3-month warranty.'},
-    { title: 'Solution 02: Job Posting & Candidate Sourcing', description: 'Let us handle your job postings and connect you with the right candidates. We\'ll post your job across relevant platforms, giving you access to a wider pool of talent.', lookingFor: 'Job postings on popular platforms and networks. Access to a wide pool of potential candidates. Flexible pricing based on the number of job postings.'},
-    { title: 'Solution 03: Temporary & Contract Staffing', description: 'We provide skilled professionals for short-term or contract roles, allowing you to meet immediate staffing needs.', lookingFor: 'Quick access to temporary or contract staff. Flexibility for short-term hires or contract-to-permanent roles. Rapid turnaround for urgent staffing needs.'}
-];
+export const JOB_HIRING = {
+    solutions: [
+        { title: 'Solution 01: Full-Service Recruitment', description: 'After understanding your requirements, we\'ll post the job, source and filter candidates, and provide you with the best options to interview.', lookingFor: 'End-to-end recruitment support. Time-saving and hassle-free hiring process. Candidate replacements with a 3-month warranty.' },
+        { title: 'Solution 02: Job Posting & Candidate Sourcing', description: 'Let us handle your job postings and connect you with the right candidates. We\'ll post your job across relevant platforms, giving you access to a wider pool of talent.', lookingFor: 'Job postings on popular platforms and networks. Access to a wide pool of potential candidates. Flexible pricing based on the number of job postings.' },
+        { title: 'Solution 03: Temporary & Contract Staffing', description: 'We provide skilled professionals for short-term or contract roles, allowing you to meet immediate staffing needs.', lookingFor: 'Quick access to temporary or contract staff. Flexibility for short-term hires or contract-to-permanent roles. Rapid turnaround for urgent staffing needs.' }
+    ],
+    whyUs: [
+        'Access to a Growing Talent Pool - Tap into our expanding network of talent within the coworking and startup community.',
+        'Fast, Reliable, and Industry-Specific Hiring – We provide quick and dependable recruitment tailored to your industry needs.',
+        'We Understand Modern Business Needs – We know what today’s businesses require — because we are one.'
+    ]
+};
 
-export const MARKETING_SOLUTIONS = [
-    { title: 'Solution 01: Our Marketing Services – Built for Impact', description: 'We\'ll help you grow your brand with Meta Ads, content creation, and email campaigns targeting Nestspace\'s relevant audience.', lookingFor: 'Meta Ads setup and management. Custom content production (graphics, videos, copywriting). Email campaigns. Tracking and optimizing campaigns for better results.'},
-    { title: 'Solution 02: Event Marketing & Promotion', description: 'Maximize your event\'s success with our end-to-end event marketing solutions. From planning and promotion to on-site support, we ensure your event gets the attention it deserves.', lookingFor: 'Comprehensive event promotion strategy. Event marketing across multiple platforms. On-site support and audience engagement.'},
-    { title: 'Solution 03: Social Media Growth & Engagement', description: 'Increase your brand\'s presence and engagement across all major social media platforms. We\'ll develop a strategy, create engaging content, and handle the management.', lookingFor: 'Social media content creation and management. Building audience engagement and loyalty. Measurable results to track social growth.'}
-];
+export const MARKETING_SOLUTIONS = {
+    solutions: [
+        { title: 'Solution 01: Our Marketing Services – Built for Impact', description: 'We\'ll help you grow your brand with Meta Ads, content creation, and email campaigns targeting Nestspace\'s relevant audience.', lookingFor: 'Meta Ads setup and management. Custom content production (graphics, videos, copywriting). Email campaigns. Tracking and optimizing campaigns for better results.' },
+        { title: 'Solution 02: Event Marketing & Promotion', description: 'Maximize your event\'s success with our end-to-end event marketing solutions. From planning and promotion to on-site support, we ensure your event gets the attention it deserves.', lookingFor: 'Comprehensive event promotion strategy. Event marketing across multiple platforms. On-site support and audience engagement.' },
+        { title: 'Solution 03: Social Media Growth & Engagement', description: 'Increase your brand\'s presence and engagement across all major social media platforms. We\'ll develop a strategy, create engaging content, and handle the management.', lookingFor: 'Social media content creation and management. Building audience engagement and loyalty. Measurable results to track social growth.' }
+    ],
+    whyUs: [
+        'We combine creativity, execution, and community reach.',
+        'In-House Team + Trusted Partners - From content creators to media connections, we bring together the right people for the right results.',
+        'Community-Centered Strategy - Leveraging our coworking and networking communities, we amplify your message organically for greater impact.',
+        'Results That Matter - We don’t just create content; we turn it into action. Our campaigns focus on reach, leads, and building brand loyalty.'
+    ]
+};
 
 export const CONTACT_INFO = {
     name: 'Albert Chee',

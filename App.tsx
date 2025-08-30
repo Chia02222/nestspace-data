@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from './components/Header';
 import Section from './components/Section';
@@ -82,8 +81,9 @@ const App: React.FC = () => {
             <PricingTable title={PRICING.hotDeskFacilities.title} headers={["Feature", "Details"]} data={PRICING.hotDeskFacilities.features} />
             <PricingTable title={PRICING.hotDeskDayPass.title} headers={["Type", "Validity", "Unit/Pass", "Normal Pricing"]} data={PRICING.hotDeskDayPass.passes} />
             <PricingTable title={PRICING.virtualOffice.title} headers={["Duration", "With Signage", "Without Signage"]} data={PRICING.virtualOffice.options} />
+            <PricingTable title={PRICING.virtualOfficeFacilities.title} headers={PRICING.virtualOfficeFacilities.headers} data={PRICING.virtualOfficeFacilities.data} />
             <PricingTable title={PRICING.meetingRoom.title} headers={["Package", "Price"]} data={PRICING.meetingRoom.rates} note={PRICING.meetingRoom.note} />
-            <PricingTable title={PRICING.eventSpace.title} headers={["Package", "Price"]} data={PRICING.eventSpace.rates} note={PRICING.eventSpace.note} />
+            <PricingTable title={PRICING.eventSpace.title} headers={["Package", "Price"]} data={PRICING.eventSpace.rates} note={PRICING.eventSpace.note} facilities={PRICING.eventSpace.facilities} />
           </div>
         </Section>
         
@@ -108,13 +108,24 @@ const App: React.FC = () => {
                         <UsersIcon className="w-8 h-8 text-indigo-600 mr-4" />
                         <h3 className="text-2xl font-bold">Expert Talent Recruitment</h3>
                     </div>
-                     {JOB_HIRING.map((sol, i) => (
+                     {JOB_HIRING.solutions.map((sol, i) => (
                         <div key={i} className="mt-6 border-l-4 border-indigo-200 pl-4">
                             <h4 className="font-semibold text-lg">{sol.title}</h4>
                             <p className="text-gray-600 mt-1">{sol.description}</p>
                             <p className="text-gray-500 mt-2 text-sm"><strong>Looking for:</strong> {sol.lookingFor}</p>
                         </div>
                     ))}
+                    <div className="mt-8 border-t border-gray-200 pt-6">
+                        <h4 className="font-bold text-xl mb-4 text-gray-800">Why Us?</h4>
+                        <ul className="space-y-3">
+                            {JOB_HIRING.whyUs.map((point, i) => (
+                                <li key={i} className="flex items-start">
+                                    <CheckCircleIcon className="w-5 h-5 text-indigo-500 mr-3 flex-shrink-0 mt-1" />
+                                    <span className="text-gray-600">{point}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
 
                 <div className="bg-white p-8 rounded-lg shadow-md">
@@ -122,13 +133,24 @@ const App: React.FC = () => {
                         <ChartBarIcon className="w-8 h-8 text-indigo-600 mr-4" />
                         <h3 className="text-2xl font-bold">Marketing Solutions</h3>
                     </div>
-                    {MARKETING_SOLUTIONS.map((sol, i) => (
+                    {MARKETING_SOLUTIONS.solutions.map((sol, i) => (
                         <div key={i} className="mt-6 border-l-4 border-indigo-200 pl-4">
                             <h4 className="font-semibold text-lg">{sol.title}</h4>
                             <p className="text-gray-600 mt-1">{sol.description}</p>
                             <p className="text-gray-500 mt-2 text-sm"><strong>Looking for:</strong> {sol.lookingFor}</p>
                         </div>
                     ))}
+                    <div className="mt-8 border-t border-gray-200 pt-6">
+                        <h4 className="font-bold text-xl mb-4 text-gray-800">Why Us?</h4>
+                        <ul className="space-y-3">
+                            {MARKETING_SOLUTIONS.whyUs.map((point, i) => (
+                                <li key={i} className="flex items-start">
+                                    <CheckCircleIcon className="w-5 h-5 text-indigo-500 mr-3 flex-shrink-0 mt-1" />
+                                    <span className="text-gray-600">{point}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </Section>
@@ -147,18 +169,39 @@ const App: React.FC = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-4">By Public Transport</h3>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-lg">Shuttle Bus</h4>
-                  <p className="text-gray-600">{LOCATION_INFO.byShuttle.details}</p>
+              <h3 className="text-2xl font-bold mb-4">Getting Here By Public Transport</h3>
+                <div className="space-y-6">
+                    <div>
+                        <h4 className="font-semibold text-lg">LRT</h4>
+                        <p className="text-gray-600">{LOCATION_INFO.byPublicTransport.lrt}</p>
+                    </div>
+                    <div>
+                        <h4 className="font-semibold text-lg">Bus</h4>
+                        <div className="space-y-2 mt-2">
+                            {LOCATION_INFO.byPublicTransport.bus.map((busInfo, i) => (
+                                <div key={i}>
+                                    <p className="text-gray-800 font-semibold">{busInfo.name}</p>
+                                    <p className="text-gray-600">{busInfo.detail}</p>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-gray-600 mt-4">
+                            {LOCATION_INFO.byPublicTransport.busNote.text}{' '}
+                            <a 
+                                href={LOCATION_INFO.byPublicTransport.busNote.url}
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="text-indigo-600 hover:underline"
+                            >
+                                {new URL(LOCATION_INFO.byPublicTransport.busNote.url).hostname}
+                            </a>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 className="font-semibold text-lg">MRT</h4>
+                        <p className="text-gray-600">{LOCATION_INFO.byPublicTransport.mrt}</p>
+                    </div>
                 </div>
-                 <div>
-                  <h4 className="font-semibold text-lg">LRT / Bus</h4>
-                  <p className="text-gray-600">{LOCATION_INFO.byPublicTransport.lrt}</p>
-                  <p className="text-gray-600">{LOCATION_INFO.byPublicTransport.mrt}</p>
-                </div>
-              </div>
             </div>
           </div>
         </Section>
